@@ -1,0 +1,210 @@
+$cyan: hsl(172, 67%, 45%);
+$vdcyan: hsl(183, 100%, 15%);
+$dgcyan1: hsl(186, 14%, 43%);
+$dgcyan2: hsl(184, 14%, 56%);
+$lgcyan1: hsl(185, 41%, 84%);
+$lgcyan2: hsl(189, 41%, 97%);
+$white: hsl(0, 0%, 100%);
+
+/*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
+
+/* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  Remove list styles (bullets/numbers)
+  in case you use it with normalize.css
+*/
+ol,
+ul {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* Removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+// CSS Reset ends here
+
+html {
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  background: $lgcyan1;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+input {
+  width: auto;
+}
+
+.container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(400px, 1fr));
+  margin: auto;
+  padding: 2rem;
+}
+
+.bar {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.bg-white {
+  background: $white;
+  color: $vdcyan;
+}
+
+.bg-blue {
+  background: $vdcyan;
+  color: $lgcyan1;
+}
+
+.bg-lblue {
+  background: $lgcyan2;
+  color: $dgcyan1;
+}
+
+.button-group {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, 1fr);
+  input {
+    width: 6rem;
+  }
+}
+
+.btn {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  justify-content: space-between;
+  input {
+    flex-grow: 1;
+    text-align: end;
+    width: fit-content;
+  }
+}
+
+.input {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+
+.input-text {
+  text-align: center;
+  min-width: 2rem;
+  max-width: fit-content;
+}
+
+.output {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.pd-8 {
+  padding: 0.5rem;
+}
+
+.pd-16 {
+  padding: 1rem;
+}
+
+.rd-8 {
+  border-radius: 0.5rem;
+}
+
+.rd-16 {
+  border-radius: 1rem;
+}
+
+.rd-32 {
+  border-radius: 2rem;
+}
+
+.spacer {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#logo {
+  margin: auto;
+  width: 64px;
+}
+
+#reset {
+  align-self: center;
+  background: $cyan;
+  width: 100%;
+}
+
+#tip-person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  #tip {
+    font-size: 2.5rem;
+  }
+}
+
+#total-person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  #total {
+    font-size: 2.5rem;
+  }
+}
+
+::placeholder {
+  color: $lgcyan1;
+  opacity: 1;
+}
+
+.attribution {
+  font-size: 1rem;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

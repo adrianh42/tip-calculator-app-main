@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="tip.css">
+  <title>Frontend Mentor | Tip calculator app</title>
+
+</head>
+
+<body>
+  <div class="spacer"><img id="logo" src="images/logo.svg" alt=""></div>
+  <main class="container bg-white rd-32">
+    <div class="input component">
+      <h2>Bill</h2>
+      <div class="form bg-lblue pd-16 rd-8">
+        <img src="images/icon-dollar.svg" alt="">
+        <input class="bar" type="text" name="bill" id="bill" placeholder="0">
+      </div>
+      <h2>Select Tip %</h2>
+      <div class="button-group">
+        <button class="btn bg-blue rd-8" id="percent5">5%</button>
+        <button class="btn bg-blue rd-8">10%</button>
+        <button class="btn bg-blue rd-8">15%</button>
+        <button class="btn bg-blue rd-8">25%</button>
+        <button class="btn bg-blue rd-8">50%</button>
+        <button class="bar bg-lblue rd-8" id="percent" type="button">
+          <input h-12 type="text" name="custom-percent" placeholder="Custom" id="custom-percent"></button>
+      </div>
+      <h2>Number of People</h2>
+      <div class="form bg-lblue pd-16 rd-8">
+        <img src="images/icon-person.svg" alt="">
+        <input class="bar" type="text" name="people-amount" id="people-amount" placeholder="0">
+      </div>
+    </div>
+    <div class="output bg-blue rd-16">
+      <div id="tip-person">
+        <div>
+          <p>Tip Amount</p>
+          <p>/ person</p>
+        </div>
+        <p id="tip">0</p>
+      </div>
+      <div id="total-person">
+        <div>
+          <p>Total</p>
+          <p>/ person</p>
+        </div>
+        <p id="total">0</p>
+      </div>
+      <button class="btn rd-8" id="reset">RESET</button>
+    </div>
+  </main>
+
+  <div class="attribution spacer">
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</p>
+    <p>Coded by <a href="#">Your Name Here</a>.</p>
+  </div>
+  <script src="tip.js"></script>
+</body>
+
+</html>
