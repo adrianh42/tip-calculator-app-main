@@ -52,11 +52,11 @@ html {
 }
 
 body {
-  display: flex;
+  display: grid;
   background: $lgcyan1;
   font-family: "Space Mono", monospace;
+  grid-template-columns: repeat(auto-fit, fr);
   font-weight: 700;
-  flex-flow: column;
   min-height: 100vh;
 }
 
@@ -64,21 +64,41 @@ input {
   width: auto;
 }
 
+input:focus {
+  outline: $lgcyan1 solid;
+}
+
 .container {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, minmax(400px, 1fr));
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 360px));
   margin: auto;
   padding: 2rem;
+  max-width: 90%;
+}
+
+@media (max-width: 472px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 376) {
 }
 
 .bar {
+  box-sizing: border-box;
   font-size: 1.5rem;
   padding: 0.5rem;
-  text-align: center;
+  text-align: right;
 }
 
 .bg-white {
+  background: $white;
+  color: $vdcyan;
+}
+
+.btn-white {
   background: $white;
   color: $vdcyan;
 }
@@ -88,9 +108,42 @@ input {
   color: $lgcyan1;
 }
 
+.btn-blue {
+  background: $vdcyan;
+  color: $lgcyan1;
+}
+
+.btn-blue:hover {
+  background: $lgcyan1;
+  color: $vdcyan;
+}
+
 .bg-lblue {
   background: $lgcyan2;
   color: $dgcyan1;
+}
+
+.btn-lblue {
+  background: $lgcyan2;
+  color: $dgcyan1;
+}
+
+.bg-cyan {
+  background: $cyan;
+  color: $vdcyan;
+}
+
+.btn-cyan {
+  background: $cyan;
+  color: $vdcyan;
+}
+
+.bg-cyan:hover {
+  background: $lgcyan1;
+}
+
+.btn-cyan:hover {
+  background: $lgcyan1;
 }
 
 .button-group {
@@ -98,7 +151,8 @@ input {
   gap: 0.75rem;
   grid-template-columns: repeat(3, 1fr);
   input {
-    width: 6rem;
+    width: 0;
+    min-width: 100%;
   }
 }
 
@@ -106,6 +160,22 @@ input {
   font-size: 1.5rem;
   padding: 0.5rem;
   text-align: center;
+}
+
+.error-form {
+  border: salmon solid;
+}
+
+.error-text {
+  color: salmon;
+}
+
+.flex {
+  display: flex;
+}
+
+.just-btwn {
+  justify-content: space-between;
 }
 
 .form {
@@ -120,16 +190,14 @@ input {
   }
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .input {
   display: flex;
   flex-flow: column;
   gap: 0.5rem;
-}
-
-.input-text {
-  text-align: center;
-  min-width: 2rem;
-  max-width: fit-content;
 }
 
 .output {
@@ -163,6 +231,7 @@ input {
   display: flex;
   align-items: center;
   flex-grow: 1;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
@@ -174,7 +243,6 @@ input {
 
 #reset {
   align-self: center;
-  background: $cyan;
   width: 100%;
 }
 

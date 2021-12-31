@@ -12,7 +12,15 @@ const totalCalc = function () {
   totalAmount.innerHTML = total.toFixed(2);
 };
 
+const setDefault = function () {};
+
 const billAmount = document.querySelector("#bill");
+
+const percentButton = document.querySelectorAll(".percent");
+
+for (button of percentButton) {
+  console.log(button.innerHTML);
+}
 
 let bill = 0;
 

@@ -21,25 +21,22 @@
   <main class="container bg-white rd-32">
     <div class="input component">
       <h2>Bill</h2>
-      <div class="form bg-lblue pd-16 rd-8">
-        <img src="images/icon-dollar.svg" alt="">
-        <input class="bar" type="text" name="bill" id="bill" placeholder="0">
-      </div>
+      <input class="bar bg-lblue rd-8" type="text" name="bill" id="bill" placeholder="0">
       <h2>Select Tip %</h2>
       <div class="button-group">
-        <button class="btn bg-blue rd-8" id="percent5">5%</button>
-        <button class="btn bg-blue rd-8">10%</button>
-        <button class="btn bg-blue rd-8">15%</button>
-        <button class="btn bg-blue rd-8">25%</button>
-        <button class="btn bg-blue rd-8">50%</button>
-        <button class="bar bg-lblue rd-8" id="percent" type="button">
-          <input h-12 type="text" name="custom-percent" placeholder="Custom" id="custom-percent"></button>
+        <button class="btn btn-blue rd-8 percent">5%</button>
+        <button class="btn btn-blue rd-8 percent">10%</button>
+        <button class="btn btn-blue rd-8 percent">15%</button>
+        <button class="btn btn-blue rd-8 percent">25%</button>
+        <button class="btn btn-blue rd-8 percent">50%</button>
+        <input class="btn btn-lblue rd-8" type="text" name="custom-percent" placeholder="Custom" id="custom-percent">
       </div>
-      <h2>Number of People</h2>
-      <div class="form bg-lblue pd-16 rd-8">
-        <img src="images/icon-person.svg" alt="">
-        <input class="bar" type="text" name="people-amount" id="people-amount" placeholder="0">
+      <div class="flex just-btwn">
+        <h2>Number of People</h2>
+        <h2 class="error-text hidden">Can't be zero</h2>
       </div>
+      <input class="bar bg-lblue rd-8" type="text" name="people-amount" id="people-amount" placeholder="0">
+
     </div>
     <div class="output bg-blue rd-16">
       <div id="tip-person">
@@ -56,7 +53,7 @@
         </div>
         <p id="total">0</p>
       </div>
-      <button class="btn rd-8" id="reset">RESET</button>
+      <button class="btn bg-cyan rd-8" id="reset">RESET</button>
     </div>
   </main>
 

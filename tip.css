@@ -42,16 +42,13 @@ html {
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
   background: #c5e4e7;
   font-family: "Space Mono", monospace;
+  -ms-grid-columns: (fr)[auto-fit];
+      grid-template-columns: repeat(auto-fit, fr);
   font-weight: 700;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
   min-height: 100vh;
 }
 
@@ -59,23 +56,41 @@ input {
   width: auto;
 }
 
+input:focus {
+  outline: #c5e4e7 solid;
+}
+
 .container {
   display: -ms-grid;
   display: grid;
-  gap: 1rem;
-  -ms-grid-columns: (minmax(400px, 1fr))[2];
-      grid-template-columns: repeat(2, minmax(400px, 1fr));
+  gap: 2rem;
+  -ms-grid-columns: (minmax(auto, 360px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(auto, 360px));
   margin: auto;
   padding: 2rem;
+  max-width: 90%;
+}
+
+@media (max-width: 472px) {
+  .container {
+    max-width: 100%;
+  }
 }
 
 .bar {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 1.5rem;
   padding: 0.5rem;
-  text-align: center;
+  text-align: right;
 }
 
 .bg-white {
+  background: white;
+  color: #00494d;
+}
+
+.btn-white {
   background: white;
   color: #00494d;
 }
@@ -85,9 +100,42 @@ input {
   color: #c5e4e7;
 }
 
+.btn-blue {
+  background: #00494d;
+  color: #c5e4e7;
+}
+
+.btn-blue:hover {
+  background: #c5e4e7;
+  color: #00494d;
+}
+
 .bg-lblue {
   background: #f4fafa;
   color: #5e7a7d;
+}
+
+.btn-lblue {
+  background: #f4fafa;
+  color: #5e7a7d;
+}
+
+.bg-cyan {
+  background: #26c0ab;
+  color: #00494d;
+}
+
+.btn-cyan {
+  background: #26c0ab;
+  color: #00494d;
+}
+
+.bg-cyan:hover {
+  background: #c5e4e7;
+}
+
+.btn-cyan:hover {
+  background: #c5e4e7;
 }
 
 .button-group {
@@ -99,13 +147,34 @@ input {
 }
 
 .button-group input {
-  width: 6rem;
+  width: 0;
+  min-width: 100%;
 }
 
 .btn {
   font-size: 1.5rem;
   padding: 0.5rem;
   text-align: center;
+}
+
+.error-form {
+  border: salmon solid;
+}
+
+.error-text {
+  color: salmon;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.just-btwn {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .form {
@@ -131,6 +200,10 @@ input {
   width: fit-content;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -140,14 +213,6 @@ input {
       -ms-flex-flow: column;
           flex-flow: column;
   gap: 0.5rem;
-}
-
-.input-text {
-  text-align: center;
-  min-width: 2rem;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
 }
 
 .output {
@@ -194,6 +259,8 @@ input {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 1rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -209,7 +276,6 @@ input {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  background: #26c0ab;
   width: 100%;
 }
 
