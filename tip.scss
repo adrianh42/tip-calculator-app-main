@@ -56,6 +56,7 @@ body {
   background: $lgcyan1;
   font-family: "Space Mono", monospace;
   grid-template-columns: repeat(auto-fit, fr);
+  grid-template-rows: repeat(auto-fill, fr);
   font-weight: 700;
   min-height: 100vh;
 }
@@ -83,9 +84,6 @@ input:focus {
   }
 }
 
-@media (min-width: 376) {
-}
-
 .bar {
   box-sizing: border-box;
   font-size: 1.5rem;
@@ -111,11 +109,14 @@ input:focus {
 .btn-blue {
   background: $vdcyan;
   color: $lgcyan1;
-}
-
-.btn-blue:hover {
-  background: $lgcyan1;
-  color: $vdcyan;
+  &.active {
+    background: $cyan;
+    color: $vdcyan;
+  }
+  &:hover {
+    background: $lgcyan1;
+    color: $vdcyan;
+  }
 }
 
 .bg-lblue {
@@ -136,14 +137,9 @@ input:focus {
 .btn-cyan {
   background: $cyan;
   color: $vdcyan;
-}
-
-.bg-cyan:hover {
-  background: $lgcyan1;
-}
-
-.btn-cyan:hover {
-  background: $lgcyan1;
+  &:hover {
+    background: $lgcyan1;
+  }
 }
 
 .button-group {
