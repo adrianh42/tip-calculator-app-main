@@ -19,47 +19,55 @@
 <body>
   <div class="spacer"><img id="logo" src="images/logo.svg" alt=""></div>
   <main class="container bg-white rd-32">
-    <div class="input component">
-      <h2>Bill</h2>
-      <input class="bar bg-lblue rd-8" type="text" name="bill" id="bill" placeholder="0">
-      <h2>Select Tip %</h2>
-      <div class="button-group">
-        <button class="btn btn-blue rd-8 percent">5%</button>
-        <button class="btn btn-blue rd-8 percent">10%</button>
-        <button class="btn btn-blue rd-8 percent">15%</button>
-        <button class="btn btn-blue rd-8 percent">25%</button>
-        <button class="btn btn-blue rd-8 percent">50%</button>
-        <input class="btn btn-lblue rd-8" type="text" name="custom-percent" placeholder="Custom" id="custom-percent">
+    <div class="input">
+      <div class="component">
+        <h2>Bill</h2>
+        <input class="bar bg-lblue rd-8" type="text" name="bill" id="bill-amount" placeholder="0">
       </div>
-      <div class="flex just-btwn">
-        <h2>Number of People</h2>
-        <h2 class="error-text hidden">Can't be zero</h2>
+      <div class="component">
+        <h2>Select Tip %</h2>
+        <div class="button-group">
+          <button class="btn btn-blue rd-8 percent">5%</button>
+          <button class="btn btn-blue rd-8 percent">10%</button>
+          <button class="btn btn-blue rd-8 percent">15%</button>
+          <button class="btn btn-blue rd-8 percent">25%</button>
+          <button class="btn btn-blue rd-8 percent">50%</button>
+          <input class="btn btn-lblue rd-8" type="text" name="custom-percent" placeholder="Custom" id="custom-percent">
+        </div>
       </div>
-      <input class="bar bg-lblue rd-8" type="text" name="people-amount" id="people-amount" placeholder="0">
+      <div class="component">
+        <div class="flex just-btwn">
+          <h2>Number of People</h2>
+          <h2 class="error-text hidden">Can't be zero</h2>
+        </div>
+        <input class="bar bg-lblue rd-8" type="text" name="people-amount" id="people-amount" placeholder="0">
+      </div>
 
     </div>
     <div class="output bg-blue rd-16">
-      <div id="tip-person">
-        <div>
-          <p>Tip Amount</p>
-          <p>/ person</p>
+      <div class="component">
+        <div id="tip-person">
+          <div>
+            <p>Tip Amount</p>
+            <p class="sub">/ person</p>
+          </div>
+          <p class="cyan" id="tip">0</p>
         </div>
-        <p id="tip">0</p>
-      </div>
-      <div id="total-person">
-        <div>
-          <p>Total</p>
-          <p>/ person</p>
+        <div id="total-person">
+          <div>
+            <p>Total</p>
+            <p class="sub">/ person</p>
+          </div>
+          <p class="cyan" id="total">0</p>
         </div>
-        <p id="total">0</p>
       </div>
-      <button class="btn btn-cyan rd-8" id="reset">RESET</button>
+      <button class="btn btn-cyan rd-8" id="reset" disabled>RESET</button>
     </div>
   </main>
 
   <div class="attribution spacer">
     <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</p>
-    <p>Coded by <a href="#">Adrian Hartanto</a>.</p>
+    <p>Coded by <a href="https://www.frontendmentor.io/profile/adrianh42" target="_blank">Adrian Hartanto</a>.</p>
   </div>
   <script src="tip.js"></script>
 </body>

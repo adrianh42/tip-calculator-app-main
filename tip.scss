@@ -55,8 +55,7 @@ body {
   display: grid;
   background: $lgcyan1;
   font-family: "Space Mono", monospace;
-  grid-template-columns: repeat(auto-fit, fr);
-  grid-template-rows: repeat(auto-fill, fr);
+  // grid-template-rows: repeat(auto-fill, fr);
   font-weight: 700;
   min-height: 100vh;
 }
@@ -72,22 +71,16 @@ input:focus {
 .container {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 360px));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   margin: auto;
   padding: 2rem;
   max-width: 90%;
 }
 
-@media (max-width: 472px) {
-  .container {
-    max-width: 100%;
-  }
-}
-
 .bar {
   box-sizing: border-box;
   font-size: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
   text-align: right;
 }
 
@@ -129,6 +122,10 @@ input:focus {
   color: $dgcyan1;
 }
 
+.cyan {
+  color: $cyan;
+}
+
 .bg-cyan {
   background: $cyan;
   color: $vdcyan;
@@ -137,6 +134,9 @@ input:focus {
 .btn-cyan {
   background: $cyan;
   color: $vdcyan;
+  &:disabled {
+    opacity: 10%;
+  }
   &:hover {
     background: $lgcyan1;
   }
@@ -145,7 +145,7 @@ input:focus {
 .button-group {
   display: grid;
   gap: 0.75rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
   input {
     width: 0;
     min-width: 100%;
@@ -179,11 +179,6 @@ input:focus {
   align-items: center;
   font-size: 1.5rem;
   justify-content: space-between;
-  input {
-    flex-grow: 1;
-    text-align: end;
-    width: fit-content;
-  }
 }
 
 .hidden {
@@ -193,14 +188,33 @@ input:focus {
 .input {
   display: flex;
   flex-flow: column;
-  gap: 0.5rem;
+  gap: 1rem;
+  .component {
+    padding-bottom: 1.5rem;
+    display: flex;
+    flex-flow: column;
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 
 .output {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  min-height: 280px;
   padding: 2rem;
+  .component {
+    display: flex;
+    flex-flow: column;
+    &>div {
+      margin: 0 0 2rem;
+    }
+  }
 }
 
 .pd-8 {
@@ -229,12 +243,29 @@ input:focus {
   flex-grow: 1;
   flex-wrap: wrap;
   gap: 1rem;
+  min-height: 144px;
   justify-content: center;
+}
+
+.sub {
+  opacity: 50%;
+}
+
+#bill-amount {
+  background-image: url(images/icon-dollar.svg);
+  background-position: 4% 50%;
+  background-repeat: no-repeat;
 }
 
 #logo {
   margin: auto;
   width: 64px;
+}
+
+#people-amount {
+  background-image: url(images/icon-person.svg);
+  background-position: 4% 50%;
+  background-repeat: no-repeat;
 }
 
 #reset {
@@ -246,18 +277,20 @@ input:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  #tip {
-    font-size: 2.5rem;
-  }
+}
+
+#tip {
+  font-size: 2.5rem;
 }
 
 #total-person {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  #total {
-    font-size: 2.5rem;
-  }
+}
+
+#total {
+  font-size: 2.5rem;
 }
 
 ::placeholder {
@@ -271,4 +304,41 @@ input:focus {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 906.5px) {
+  .container {
+    width: 100%;
+    max-width: 75%;
+  }
+  .button-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .btn {
+    padding: 0.25rem;
+  }
+  .spacer:last-of-type {
+    align-content: center;
+    min-height: 72px;
+  }
+  #logo {
+    width: 80px;
+  }
+  #tip {
+    font-size: 2rem;
+  }
+  #total {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 572.5px) {
+  .container {
+    border-radius: 2rem 2rem 0rem 0rem;
+    width: 100%;
+    max-width: none;
+  }
+  .spacer:last-of-type {
+    background: $white;
+  }
 }

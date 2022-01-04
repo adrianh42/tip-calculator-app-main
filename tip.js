@@ -10,9 +10,14 @@ const calc = function () {
     totalAmount.innerHTML = 0;
   } else {
     tip = ((percent / 100) * bill) / person;
-    tipAmount.innerHTML = tip.toFixed(2);
+    tipAmount.innerHTML = `$${tip.toFixed(2)}`;
     total = bill / person + tip;
-    totalAmount.innerHTML = total.toFixed(2);
+    totalAmount.innerHTML = `$${total.toFixed(2)}`;
+  }
+  if (bill == 0 && percent == 0 && person == 0) {
+    resetButton.setAttribute("disabled", true);
+  } else {
+    resetButton.removeAttribute("disabled");
   }
 };
 
@@ -28,12 +33,20 @@ const isDefault = function () {
     percent = 10;
   }
   if (person == 0) {
-    numPeople.value = 1;
+    error.classList.add("hidden");
+    numPerson.value = 1;
     person = 1;
   }
 };
 
-// Code
+const inactive = function () {
+  resetButton.classList.toggle("active");
+};
+
+// Variables
+
+const tipAmount = document.querySelector("#tip");
+const totalAmount = document.querySelector("#total");
 
 let percent = 0;
 
@@ -41,11 +54,15 @@ let bill = 0;
 
 let person = 0;
 
+let tip = 0;
+
+let total = 0;
+
 // Bill amount
 
-const billAmount = document.querySelector("#bill");
+const billAmount = document.querySelector("#bill-amount");
 
-billAmount.addEventListener("change", function () {
+billAmount.addEventListener("input", function () {
   bill = this.value;
   console.log(this.value);
   isDefault();
@@ -62,7 +79,6 @@ for (button of percentButton) {
     this.classList.toggle("active");
     percent = this.innerHTML.slice(0, -1);
     customPercent.value = "";
-    isDefault();
     calc();
   });
 }
@@ -78,33 +94,27 @@ customPercent.addEventListener("change", function () {
   percent = this.value;
   console.log(this.value);
   this.value += "%";
-  isDefault();
   calc();
 });
 
 // Number of people
 
-const numPeople = document.querySelector("#people-amount");
+const numPerson = document.querySelector("#people-amount");
 
-numPeople.addEventListener("click", clear);
+const error = document.querySelector(".error-text");
 
-numPeople.addEventListener("change", function () {
-  const error = document.querySelector(".error-text");
-  if (numPeople.value == 0) {
-    error.classList.toggle("hidden");
+numPerson.addEventListener("click", clear);
+
+numPerson.addEventListener("input", function () {
+  if (numPerson.value == 0 || numPerson.value == "") {
+    error.classList.remove("hidden");
   } else {
     error.classList.add("hidden");
   }
   person = this.value;
   console.log(this.value);
-  isDefault();
   calc();
 });
-
-const tipAmount = document.querySelector("#tip");
-let tip = 0;
-const totalAmount = document.querySelector("#total");
-let total = 0;
 
 // Reset button
 
@@ -112,9 +122,10 @@ const resetButton = document.querySelector("#reset");
 
 resetButton.addEventListener("click", function () {
   resetSelected();
-  numPeople.value = "";
-  customPercent.value = "";
   billAmount.value = "";
+  customPercent.value = "";
+  numPerson.value = "";
+  error.classList.add("hidden");
   percent = 0;
   bill = 0;
   person = 0;

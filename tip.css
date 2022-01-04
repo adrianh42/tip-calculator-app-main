@@ -46,10 +46,6 @@ body {
   display: grid;
   background: #c5e4e7;
   font-family: "Space Mono", monospace;
-  -ms-grid-columns: (fr)[auto-fit];
-      grid-template-columns: repeat(auto-fit, fr);
-  -ms-grid-rows: (fr)[auto-fill];
-      grid-template-rows: repeat(auto-fill, fr);
   font-weight: 700;
   min-height: 100vh;
 }
@@ -66,24 +62,18 @@ input:focus {
   display: -ms-grid;
   display: grid;
   gap: 2rem;
-  -ms-grid-columns: (minmax(auto, 360px))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(auto, 360px));
+  -ms-grid-columns: (minmax(380px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   margin: auto;
   padding: 2rem;
   max-width: 90%;
-}
-
-@media (max-width: 472px) {
-  .container {
-    max-width: 100%;
-  }
 }
 
 .bar {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
   text-align: right;
 }
 
@@ -127,6 +117,10 @@ input:focus {
   color: #5e7a7d;
 }
 
+.cyan {
+  color: #26c0ab;
+}
+
 .bg-cyan {
   background: #26c0ab;
   color: #00494d;
@@ -137,8 +131,8 @@ input:focus {
   color: #00494d;
 }
 
-.btn-cyan:hover {
-  background: #c5e4e7;
+.btn-cyan:disabled {
+  opacity: 10%;
 }
 
 .btn-cyan:hover {
@@ -149,8 +143,8 @@ input:focus {
   display: -ms-grid;
   display: grid;
   gap: 0.75rem;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (minmax(96px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
 }
 
 .button-group input {
@@ -197,16 +191,6 @@ input:focus {
           justify-content: space-between;
 }
 
-.form input {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  text-align: end;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
 .hidden {
   visibility: hidden;
 }
@@ -219,7 +203,26 @@ input:focus {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  gap: 0.5rem;
+  gap: 1rem;
+}
+
+.input .component {
+  padding-bottom: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.input .component:last-of-type {
+  padding-bottom: 0;
+}
+
+.input .component h2 {
+  margin-bottom: 0.5rem;
 }
 
 .output {
@@ -233,7 +236,22 @@ input:focus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  min-height: 280px;
   padding: 2rem;
+}
+
+.output .component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.output .component > div {
+  margin: 0 0 2rem;
 }
 
 .pd-8 {
@@ -269,14 +287,31 @@ input:focus {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 1rem;
+  min-height: 144px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
+.sub {
+  opacity: 50%;
+}
+
+#bill-amount {
+  background-image: url(images/icon-dollar.svg);
+  background-position: 4% 50%;
+  background-repeat: no-repeat;
+}
+
 #logo {
   margin: auto;
   width: 64px;
+}
+
+#people-amount {
+  background-image: url(images/icon-person.svg);
+  background-position: 4% 50%;
+  background-repeat: no-repeat;
 }
 
 #reset {
@@ -298,7 +333,7 @@ input:focus {
           justify-content: space-between;
 }
 
-#tip-person #tip {
+#tip {
   font-size: 2.5rem;
 }
 
@@ -314,7 +349,7 @@ input:focus {
           justify-content: space-between;
 }
 
-#total-person #total {
+#total {
   font-size: 2.5rem;
 }
 
@@ -344,5 +379,44 @@ input:focus {
 
 .attribution a {
   color: #3e52a3;
+}
+
+@media (max-width: 906.5px) {
+  .container {
+    width: 100%;
+    max-width: 75%;
+  }
+  .button-group {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .btn {
+    padding: 0.25rem;
+  }
+  .spacer:last-of-type {
+    -ms-flex-line-pack: center;
+        align-content: center;
+    min-height: 72px;
+  }
+  #logo {
+    width: 80px;
+  }
+  #tip {
+    font-size: 2rem;
+  }
+  #total {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 572.5px) {
+  .container {
+    border-radius: 2rem 2rem 0rem 0rem;
+    width: 100%;
+    max-width: none;
+  }
+  .spacer:last-of-type {
+    background: white;
+  }
 }
 /*# sourceMappingURL=tip.css.map */
